@@ -95,6 +95,53 @@ a:focus-visible, button:focus-visible {
 	border-bottom: 1px solid var(--surface-border);
 }
 
+.nav-logo {
+	font-family: var(--font-mono);
+	display: flex;
+	align-items: center;
+	color: var(--text);
+}
+
+.nav-logo .prompt {
+	color: var(--accent-2);
+}
+
+#current-path {
+	transition: opacity 0.15s ease;
+}
+
+#path-divider {
+	opacity: 0;
+	overflow: hidden;
+	display: inline-block;
+	width: 0;
+	transition: opacity 0.2s ease, width 0.2s ease;
+}
+
+#suffix-viewport {
+	display: inline-block;
+	overflow: hidden;
+	height: 1.2em;
+	vertical-align: bottom;
+	transition: width 0.3s ease;
+}
+
+#pec {
+	color: var(--accent-2);
+}
+
+#suffix-track {
+	display: flex;
+	flex-direction: column;
+}
+
+.suffix-slot {
+	height: 1.2em;
+	line-height: 1.2em;
+	white-space: nowrap;
+	color: var(--accent);
+}
+
 .nav-inner {
 	max-width: 900px;
 	margin: 0 auto;
@@ -230,12 +277,7 @@ a:focus-visible, button:focus-visible {
 .section {
 	position: relative;
 	z-index: 2;
-	background: var(--surface);
-  	border: 1px solid var(--surface-border);
-  	border-radius: var(--radius);
-  	padding: var(--space-lg);
-  	backdrop-filter: blur(8px);
-  	-webkit-backdrop-filter: blur(8px);
+  	padding: var(--space-xl) var(--space-md);
 }
 
 .section-inner {
@@ -243,6 +285,14 @@ a:focus-visible, button:focus-visible {
 	margin: 0 auto;
 }
 
+.panel {
+	background: var(--surface);
+	border: 1px solid var(--surface-border);
+	border-radius: var(--radius);
+	padding: var(--space-lg);
+	backdrop-filter: blur(8px);
+	-webkit-backdrop-filter: blur(8px);
+}
 .section h2 {
 	font-family: var(--font-display);
 	font-size: clamp(1.8rem, 4vw, 2.4rem);
@@ -270,5 +320,108 @@ a:focus-visible, button:focus-visible {
 	align-items: start;
 	padding: var(--space-md);
 	background: var(--surface);
-	border-bottom: 1px solid var(--surface-border)
+	border-bottom: 1px solid var(--surface-border);
+	transition: background 0.15s ease;
+}
+
+.project-row:last-child {
+	border-bottom: none;
+}
+
+.project-row:hover {
+	background: rgba(232, 225, 208, 0.06);
+}
+
+.project-meta {
+	font-family: var(--font-mono);
+	font-size: 0.8rem;
+	color: var(--text-dim);
+	display: flex;
+	flex-direction: column;
+	gap: 0.3rem;
+	padding-top: 0.2rem;
+}
+
+.project-index {
+	color: var(--accent);
+	font-weight: 500;
+}
+
+.project-body h3 {
+	font-family: var(--font-display);
+	font-size: 1.3rem;
+	margin: 0 0 0.4rem;
+	color: var(--text);
+}
+
+.project-body p {
+	margin: 0 0 var(--space-xs);
+	color: var(--text-dim);
+	max-width: 60ch;
+}
+
+.project-links {
+	display: flex;
+	flex-direction: column;
+	gap: 0.4rem;
+	font-family: var(--font-mono);
+	font-size: 0.85rem;
+	align-items: flex-end;
+	padding-top: 0.2rem;
+}
+
+.tag-list {
+	list-style: none;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.6rem;
+	padding: 0;
+	margin: var(--space-sm) 0 0;
+}
+
+.tag-list li, .tag-list span {
+	font-family: var(--font-mono);
+	font-size: 0.75rem;
+	color: var(--accent-2);
+	border: 1px solid rgba(74, 143, 134, 0.35);
+	padding: 0.3rem 0.7rem;
+	border-radius: 100px;
+}
+
+
+.contact-links {
+	display: flex;
+	gap: var(--space-sm);
+	flex-wrap: wrap;
+	margin-top: var(--space-md);
+}
+
+.footer {
+	text-align: center;
+	padding: var(--space-lg) var(--space-md);
+	font-family: var(--font-mono);
+	font-size: 0.8rem;
+	color: var(--text-dim);
+	border-top: 1px solid var(--surface-border);
+}
+
+@media ( max-width: 640px ) {
+	.navlinks {
+		gap: var(--space-sm);
+		font-size: 0.8rem;
+	}
+	.nav-links .prompt {
+		display: none;
+	}
+	.project-row {
+		grid-template-columns: 1fr;
+		gap: var(--space-xs);
+	}
+	.project-meta {
+		flex-direction: row;
+	}
+	.project-links {
+		flex-direction: row;
+		align-items: flex-start;
+	}
 }
